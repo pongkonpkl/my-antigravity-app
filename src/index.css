@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+@theme {
+  --font-inter: 'Inter', sans-serif;
+  --font-fira: 'Fira Code', monospace;
+  --color-gold-light: #fcf6ba;
+  --color-gold-mid: #d4af37;
+  --color-gold-dark: #b38728;
+}
+
+body {
+  margin: 0;
+  background-color: #030303;
+  color: #fff;
+  font-family: var(--font-inter);
+}
+
+/* Glassmorphism Classes */
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(45deg, var(--color-gold-dark), var(--color-gold-light), var(--color-gold-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
