@@ -10,7 +10,7 @@ import base64
 import time
 from datetime import datetime
 
-app = FastAPI(title="Coin PT Standalone API")
+app = FastAPI(title="Coin PT API")
 
 # DB CONFIG
 DB_PATH = "social_data.db"
@@ -105,4 +105,8 @@ def delete_social_post(post_id: int):
     return {"status": "deleted"}
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1", port=8001)
+    try:
+        uvicorn.run("main:app", host="127.0.0.1", port=8001, reload=True)
+    except Exception as e:
+        print(f"❌ Error starting server: {e}")
+        print("💡 Tip: A server might already be running on port 8001. Try running run_backend.bat to clear it.")
