@@ -9,5 +9,30 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
-  </body>
+  
+    <!-- Firebase Auth Guard -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-auth.js";
+        const firebaseConfig = {
+            apiKey: "AIzaSyD8MkYqraaK3nLZdOk8-fP8bdFkxUk6I2A",
+            authDomain: "my-app-login-bb197.firebaseapp.com",
+            projectId: "my-app-login-bb197",
+            storageBucket: "my-app-login-bb197.firebasestorage.app",
+            messagingSenderId: "522885122",
+            appId: "1:522885122:web:041c7fbb9f12f01702af1b",
+            measurementId: "G-7PWFHCH51X"
+        };
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                // Not logged in -> redirect to login
+                window.location.href = "/login.html";
+            }
+        });
+    </script>
+</body>
+
 </html>
